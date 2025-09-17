@@ -1,0 +1,13 @@
+.container {
+  position: relative;
+}
+.areaWidth {
+  width: 92%;
+  position: relative;
+}
+.submitBtn {
+  height: 92%;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
