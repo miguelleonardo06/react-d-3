@@ -6,8 +6,12 @@
   position: relative;
 }
 .submitBtn {
-  height: 92%;
+  height: 2.5rem;
   position: absolute;
   top: 0;
-  right: 0;
+  right: 1%;
+}
+.error {
+  font-size: 12px;
+  color: red;
 }

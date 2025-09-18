@@ -20,7 +20,7 @@ export function Post() {
       .catch((err) => setError(err.message))
       .finally(() => setLoading(false));
   }, []);
-  console.log(comments);
+
   return (
     <main>
       {isLoading && <h1>Loudeng Loudeng.....</h1>}
@@ -29,7 +29,7 @@ export function Post() {
         <div className={style.container} key={post.id}>
           <h4>{post.title}</h4>
           <p className={style.postBody}>{post.body}</p>
-          <h5>Comments:</h5>
+          <h3>Comments:</h3>
           <Comment
             postOwnerId={post.id}
             setComments={setComments}

@@ -32,8 +32,8 @@ export function Comment({ postOwnerId, comments, setComments }) {
       {comments
         .filter((comment) => comment.postId === postOwnerId)
         .map((comment) => (
-          <main key={comment.id}>
-            <h6>{comment.email}</h6>
+          <main key={comment.id} className={css.container}>
+            <h4>{comment.email}</h4>
             <p>{comment.body}</p>
           </main>
         ))}
