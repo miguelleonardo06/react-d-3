@@ -20,7 +20,7 @@ export function Post() {
       .catch((err) => setError(err.message))
       .finally(() => setLoading(false));
   }, []);
-
+  console.log(comments);
   return (
     <main>
       {isLoading && <h1>Loudeng Loudeng.....</h1>}
@@ -34,12 +34,6 @@ export function Post() {
             postOwnerId={post.id}
             setComments={setComments}
             comments={comments}
-          />
-          <AddComment
-            comments={comments}
-            setComments={setComments}
-            postOwnerId={post.id}
-            commentsLength={comments?.length}
           />
         </div>
       ))}

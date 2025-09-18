@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { AddComment } from "./forms/AddComment";
 
 export function Comment({ postOwnerId, comments, setComments }) {
   const [isLoading, setLoading] = useState(false);
@@ -26,14 +27,21 @@ export function Comment({ postOwnerId, comments, setComments }) {
     return <p>{error}</p>;
   }
 
-  return comments.map((comment) => {
-    const isPostMatchUserId = comment.postId == postOwnerId ? true : false;
-
-    return (
-      <main key={comment.id}>
-        <h6>{isPostMatchUserId && comment.email}</h6>
-        <p>{isPostMatchUserId && comment.body}</p>
-      </main>
-    );
-  });
+  return (
+    <>
+      {comments
+        .filter((comment) => comment.postId === postOwnerId)
+        .map((comment) => (
+          <main key={comment.id}>
+            <h6>{comment.email}</h6>
+            <p>{comment.body}</p>
+          </main>
+        ))}
+      <AddComment
+        setComments={setComments}
+        postOwnerId={postOwnerId}
+        commentsLength={comments?.length}
+      />
+    </>
+  );
 }

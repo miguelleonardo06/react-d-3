@@ -1,21 +1,13 @@
 import { useState } from "react";
 import css from "./AddComment.module.css";
-export function AddComment({
-  comments,
-  setComments,
-  commentsLength,
-  postOwnerId,
-}) {
+export function AddComment({ setComments, commentsLength, postOwnerId }) {
   const [newComment, setNewComment] = useState("");
 
   function handleSubmit(e) {
     e.preventDefault();
-    console.log(newComment);
     setComments((prev) => [...prev, newComment]);
     setNewComment("");
   }
-
-  console.log(comments);
 
   return (
     <form onSubmit={handleSubmit}>
