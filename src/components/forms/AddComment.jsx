@@ -8,7 +8,7 @@ export function AddComment({ setComments, commentsLength, postOwnerId }) {
     e.preventDefault();
 
     if (!newComment) {
-      return setError("PLease enter a new comment before submitting.");
+      return setError("Please enter a new comment before submitting.");
     }
 
     const payload = [

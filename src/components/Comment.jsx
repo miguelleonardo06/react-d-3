@@ -2,9 +2,11 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { AddComment } from "./forms/AddComment";
 
-export function Comment({ postOwnerId, comments, setComments }) {
+export function Comment({ postOwnerId }) {
   const [isLoading, setLoading] = useState(false);
   const [error, setError] = useState();
+
+  const [comments, setComments] = useState([]);
 
   useEffect(() => {
     setLoading(true);
@@ -17,7 +19,7 @@ export function Comment({ postOwnerId, comments, setComments }) {
       })
       .catch((err) => setError(err.message))
       .finally(() => setLoading(false));
-  }, [setComments]);
+  }, []);
 
   if (isLoading) {
     return <h1>Loading....</h1>;
@@ -32,7 +34,7 @@ export function Comment({ postOwnerId, comments, setComments }) {
       {comments
         .filter((comment) => comment.postId === postOwnerId)
         .map((comment) => (
-          <main key={comment.id} className={css.container}>
+          <main key={comment.id}>
             <h4>{comment.email}</h4>
             <p>{comment.body}</p>
           </main>

@@ -2,13 +2,11 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import style from "./Post.module.css";
 import { Comment } from "./Comment";
-import { AddComment } from "./forms/AddComment";
+
 export function Post() {
   const [posts, setPosts] = useState([]);
   const [isLoading, setLoading] = useState(false);
   const [error, setError] = useState();
-
-  const [comments, setComments] = useState([]);
 
   useEffect(() => {
     setLoading(true);
@@ -30,11 +28,7 @@ export function Post() {
           <h4>{post.title}</h4>
           <p className={style.postBody}>{post.body}</p>
           <h3>Comments:</h3>
-          <Comment
-            postOwnerId={post.id}
-            setComments={setComments}
-            comments={comments}
-          />
+          <Comment postOwnerId={post.id} />
         </div>
       ))}
     </main>
